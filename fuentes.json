@@ -1,0 +1,58 @@
+{
+ "_": "Cómo pide Tele Fácil los canales a cada plataforma. La app usa la copia del repo público si la hay y, si con ella falla algo, prueba con la que lleva dentro. {nombre} = se rellena en la app.",
+ "agente": "Mozilla/5.0 (Linux; Android 14; Android TV) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
+ "tdt": {
+  "lista": "https://www.tdtchannels.com/lists/tv.json",
+  "guia": "https://www.tdtchannels.com/epg/TV.json"
+ },
+ "iptv": {
+  "_": "El primero que trae un nombre manda: España primero.",
+  "listas": [
+   "https://raw.githubusercontent.com/iptv-org/iptv/master/streams/es_rakuten.m3u",
+   "https://raw.githubusercontent.com/iptv-org/iptv/master/streams/es_samsung.m3u",
+   "https://raw.githubusercontent.com/iptv-org/iptv/master/streams/es.m3u",
+   "https://raw.githubusercontent.com/iptv-org/iptv/master/streams/ma.m3u",
+   "https://raw.githubusercontent.com/iptv-org/iptv/master/streams/mx.m3u",
+   "https://raw.githubusercontent.com/iptv-org/iptv/master/streams/pe.m3u",
+   "https://raw.githubusercontent.com/iptv-org/iptv/master/streams/pa.m3u",
+   "https://raw.githubusercontent.com/iptv-org/iptv/master/streams/ec.m3u",
+   "https://raw.githubusercontent.com/iptv-org/iptv/master/streams/co.m3u"
+  ]
+ },
+ "pluto": {
+  "inicio": "https://boot.pluto.tv/v4/start?appName=web&appVersion=9.10.0&deviceVersion=124.0.0&deviceModel=web&deviceMake=chrome&deviceType=web&clientModelNumber=1.0.0&serverSideAds=true&clientID={cliente}",
+  "canales": "https://service-channels.clusters.pluto.tv/v2/guide/channels?channelIds=&offset=0&limit=1000&sort=number%3Aasc",
+  "directo": "{stitcher}/v2/stitch/hls/channel/{id}/master.m3u8?{parametros}&jwt={token}&masterJWTPassthrough=true"
+ },
+ "rakuten": {
+  "pedir": "https://gizmo.rakuten.tv/v3/avod/streamings?classification_id=5&device_identifier=web&device_stream_audio_quality=2.0&device_stream_hdr_type=NONE&device_stream_video_quality=FHD&disable_dash_legacy_packages=false&locale=es&market_code=es",
+  "cuerpo": {
+   "audio_language": "SPA",
+   "audio_quality": "2.0",
+   "classification_id": 5,
+   "content_id": "{id}",
+   "content_type": "live_channels",
+   "device_serial": "not implemented",
+   "player": "web:HLS-NONE:NONE",
+   "strict_video_quality": false,
+   "subtitle_language": "MIS",
+   "video_type": "stream"
+  }
+ },
+ "plex": {
+  "anonimo": "https://plex.tv/api/v2/users/anonymous",
+  "cabeceras": {
+   "Accept": "application/json",
+   "X-Plex-Product": "Plex Web",
+   "X-Plex-Version": "4.145.0",
+   "X-Plex-Platform": "Chrome"
+  },
+  "directo": "https://epg.provider.plex.tv/library/parts/{id}.m3u8?X-Plex-Token={token}"
+ },
+ "easybroadcast": {
+  "_": "Tele pública marroquí (SNRT) y Medi1: el permiso se añade a cada petición a {host}/abr_corp/<id>/.",
+  "host": "cdn.live.easybroadcast.io",
+  "permiso": "https://token.easybroadcast.io/all?url={url}",
+  "maestra": "https://{host}/abr_corp/{id}/playlist.m3u8"
+ }
+}

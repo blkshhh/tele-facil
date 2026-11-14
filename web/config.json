@@ -1,5 +1,6 @@
 {
- "_": "Rastreadores que se bloquean en las webs oficiales (NO anuncios: sin ellos no hay vídeo) y si se cambia de canal dentro de la página de Mediaset.",
+ "_": "Rastreadores que se bloquean en las webs oficiales (NO anuncios: sin ellos no hay vídeo) y si se cambia de canal dentro de la página de Mediaset. agente = navegador con el que se abren las webs.",
+ "agente": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
  "rastreadores": [
   "facebook.com",
   "facebook.net",
